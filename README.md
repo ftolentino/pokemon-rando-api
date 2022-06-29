@@ -21,6 +21,9 @@
 * _easy-to-understand_
 * _format_
 
+* run $npm install to install dependencies
+* run $ npm install dotenv-webpack@2.0.0 --save-dev
+
 ## Known Bugs
 
 * _Any known issues_
