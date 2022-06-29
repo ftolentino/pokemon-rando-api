@@ -1,5 +1,5 @@
 {
-  "name": "project-name",
+  "name": "marvel-universe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ftolentino/shape-tracker.git"
+    "url": "git+https://github.com/ftolentino/marvel-universe.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ftolentino/shape-tracker/issues"
+    "url": "https://github.com/ftolentino/marvel-universe/issues"
   },
-  "homepage": "https://github.com/ftolentino/shape-tracker#readme",
+  "homepage": "https://github.com/ftolentino/marvel-universe#readme",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
