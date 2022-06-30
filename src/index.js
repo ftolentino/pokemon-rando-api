@@ -15,19 +15,19 @@ $(document).ready(function () {
       let testString = "";
       const body = JSON.parse(response);
       let index = getRandomInt(249);
-    
+
       testString = body.data[index].images.large;
       let cardPrice = body.data[index].tcgplayer.url;
-     
+
       $("#output").html(
         `<img class="img-fluid my-4" src="${testString}" /><br><a href="${cardPrice}" target="_blank">Buy card</a>`
       );
     }),
-    function (error) {
-      $(".showError").text(
-        `There was an error processing your request; ${error}`
-      );
-    };
+      function (error) {
+        $(".showError").text(
+          `There was an error processing your request; ${error}`
+        );
+      };
   });
 });
 
@@ -45,8 +45,10 @@ function getElements(response) {
   if (response) {
     const body = response;
     let colorVar = "#" + body.colors[index].hex;
-    $('#cardColor').css('background-color', colorVar);
+    $("#cardColor").css("background-color", colorVar);
   } else {
-    $(".showError").text(`There was an error processing your request; ${response}`);
+    $(".showError").text(
+      `There was an error processing your request; ${response}`
+    );
   }
 }
