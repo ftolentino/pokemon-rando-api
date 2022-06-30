@@ -13,10 +13,10 @@ $(document).ready(function () {
       function (response) {
         let testString = "";
         const body = JSON.parse(response);
-        console.log(body.results[0].name);
-        testString = body.results[0].name;
-        console.log(testString);
-        $("#output").text(testString);
+        console.log(body.data[249].images.large);
+        testString = body.data[249].images.large;
+        // console.log(testString);
+        $("#output").html(`<img src="${testString}" />`);
       },
       function (error) {
         $(".showError").text(
@@ -26,3 +26,5 @@ $(document).ready(function () {
     );
   });
 });
+
+
