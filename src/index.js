@@ -13,8 +13,9 @@ $(document).ready(function () {
       function (response) {
         let testString = "";
         const body = JSON.parse(response);
-        console.log(body.data[249].images.large);
-        testString = body.data[249].images.large;
+        let index = getRandomInt(249);
+        console.log(body.data[index].images.large);
+        testString = body.data[index].images.large;
         // console.log(testString);
         $("#output").html(`<img src="${testString}" />`);
       },
@@ -27,4 +28,21 @@ $(document).ready(function () {
   });
 });
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
+// function robustShowImage(response) {
+//   let outputString = "";
+//   response.data.forEach(
+//     (element) =>
+//       (outputString += `<img class="m-3 img-fluid rounded mx-auto d-block col-sm-6" src="${element.images.large}" />`)
+//   );
+//   $(".output").html(outputString);
+// }
+
+// function showImage(response) {
+//   $(".output").html(
+//     `<img class="m-3 rounded mx-auto my-auto d-block" src="${response.data.images.original.url}" />`
+//   );
+// }
