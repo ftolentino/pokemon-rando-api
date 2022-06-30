@@ -3,28 +3,31 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import PokemonAPI from "./js/PokemonAPI.js";
+import RandomColor from "./js/RandomColorAPI.js";
 
 $(document).ready(function () {
   $("#pokeBTN").click(function () {
     // UI code here
     let pokemon = $("#pokeBTN").val();
     let promise = PokemonAPI.getPokemon(pokemon);
-    promise.then(
-      function (response) {
-        let testString = "";
-        const body = JSON.parse(response);
-        let index = getRandomInt(249);
-        console.log(body.data[index].images.large);
-        testString = body.data[index].images.large;
-        // console.log(testString);
-        $("#output").html(`<img src="${testString}" />`);
-      },
-      function (error) {
-        $(".showError").text(
-          `There was an error processing your request; ${error}`
-        );
-      }
-    );
+    makeApiCall();
+    promise.then(function (response) {
+      let testString = "";
+      const body = JSON.parse(response);
+      let index = getRandomInt(249);
+    
+      testString = body.data[index].images.large;
+      let cardPrice = body.data[index].tcgplayer.url;
+     
+      $("#output").html(
+        `<img class="img-fluid my-4" src="${testString}" /><br><a href="${cardPrice}" target="_blank">Buy card</a>`
+      );
+    }),
+    function (error) {
+      $(".showError").text(
+        `There was an error processing your request; ${error}`
+      );
+    };
   });
 });
 
@@ -32,17 +35,18 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-// function robustShowImage(response) {
-//   let outputString = "";
-//   response.data.forEach(
-//     (element) =>
-//       (outputString += `<img class="m-3 img-fluid rounded mx-auto d-block col-sm-6" src="${element.images.large}" />`)
-//   );
-//   $(".output").html(outputString);
-// }
+async function makeApiCall() {
+  const response = await RandomColor.getRandomColor();
+  getElements(response);
+}
 
-// function showImage(response) {
-//   $(".output").html(
-//     `<img class="m-3 rounded mx-auto my-auto d-block" src="${response.data.images.original.url}" />`
-//   );
-// }
+function getElements(response) {
+  let index = getRandomInt(99);
+  if (response) {
+    const body = response;
+    let colorVar = "#" + body.colors[index].hex;
+    $('#cardColor').css('background-color', colorVar);
+  } else {
+    $(".showError").text(`There was an error processing your request; ${response}`);
+  }
+}

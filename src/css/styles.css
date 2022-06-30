@@ -1,3 +1,15 @@
 body {
-  background-color:aquamarine;
+  background-color: black;
+  color: white;
+}
+
+.container {
+  text-align: center;
+  font-family: helvetica;
+  background-color: black;
+  color: white;
+}
+
+#cardColor {
+  background-color: black;
 }
