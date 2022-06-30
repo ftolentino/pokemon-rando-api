@@ -19,7 +19,7 @@
 
 ## Description
 ```
-A web page that displays all things Marvel in cards.
+A web application that lets you get a random Pokemon card and also generate a random color background. A buy card link also shows up for each Pokemon card.
 ```
 ## Setup/Installation Requirements
 
