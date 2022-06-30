@@ -21,6 +21,10 @@
 ```
 A web application that lets you get a random Pokemon card and also generate a random color background. A buy card link also shows up for each Pokemon card.
 ```
+
+## API links
+* [PokemonTCG](https://docs.pokemontcg.io/)
+* [colr.org](https://www.colr.org/api.html)
 ## Setup/Installation Requirements
 
 * _git clone **repository link**, to your local machine._
