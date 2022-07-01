@@ -23,11 +23,11 @@ $(document).ready(function () {
         `<img class="img-fluid my-4" src="${testString}" /><br><a href="${cardPrice}" target="_blank">Buy card</a>`
       );
     }),
-      function (error) {
-        $(".showError").text(
-          `There was an error processing your request; ${error}`
-        );
-      };
+    function (error) {
+      $(".showError").text(
+        `There was an error processing your request; ${error}`
+      );
+    };
   });
 });
 
